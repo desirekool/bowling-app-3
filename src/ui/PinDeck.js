@@ -1,7 +1,16 @@
 import React from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
-import {PinDeckWrapper, InstructionText} from "./styles";
-import {uniqueId} from "lodash";
+import styled from 'styled-components';
+import { nanoid } from 'nanoid';
+
+const PinDeckWrapper = styled.div`
+  display: flex;  
+  flex-direction: row;
+`;
+
+const InstructionText = styled.div`
+  min-width: 300px;  
+`;
 
 function PinDeck(props) {
 
@@ -14,7 +23,7 @@ function PinDeck(props) {
         <PinDeckWrapper>
             <InstructionText>Pins Knocked Down</InstructionText>
             <Button
-                key={uniqueId('frame_')}
+                key={nanoid()}
                 size={"small"}
                 title={"0"}
                 onClick={handleBallThrow}
@@ -22,7 +31,7 @@ function PinDeck(props) {
             </Button>
             {[...Array(props.pinsOntheDeck)].map((pin, index) =>
                 <Button
-                    key={uniqueId('pin_')}
+                    key={nanoid('pin_')}
                     size={"small"}
                     title={index + 1}
                     onClick={handleBallThrow}

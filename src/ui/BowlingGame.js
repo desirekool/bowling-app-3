@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import FrontOffice from "../FrontOffice/FrontOffice";
-import PinDeck from "../PinDeck/PinDeck";
-import Scorecard from "../../components/business/Scorecard/Scorecard";
-import ScoreBoard from "../ScoreBoard/ScoreBoard";
-import {isNil} from "lodash";
+import Header from "./Header";
+import PinDeck from "./PinDeck";
+import Scorecard from "../components/Scorecard";
+import ScoreBoard from "./ScoreBoard";
+
 
 //TODO: Use useEffect Hook to simplify the code??
 
@@ -14,7 +14,7 @@ function BowlingGame() {
     const [counter, setCounter] = useState(null);
 
     function startGame() {
-        setGameInProgress(!isNil(scorecard.player) && scorecard.player.length ? true : false);
+        setGameInProgress(scorecard.player?.length ? true : false);
     }
 
     function stopGame() {
@@ -52,7 +52,7 @@ function BowlingGame() {
 
     return (
         <div className={'game-wrapper'}>
-            <FrontOffice
+            <Header
                 startGame = {startGame}
                 stopGame = {stopGame}
                 addPlayer = {handleAddPlayer}

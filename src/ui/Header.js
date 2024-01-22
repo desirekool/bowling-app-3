@@ -3,14 +3,16 @@ import { Field, Input} from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
-//TODO : Further Improve the position and Styling of elements and controls display logic
-
-function FrontOffice(props) {
+function Header(props) {
 
     const [name, setName] = useState('');
 
     function handleNameSubmit(e) {
         e.preventDefault();
+        if(name === '') {
+            alert('Please enter a valid name');
+            return;
+        }
         props.addPlayer(name);
     }
 
@@ -38,7 +40,7 @@ function FrontOffice(props) {
                         <Col>
                             <Button title="Click to create another game"
                                  onClick={handleNameSubmit}
-                                 value="addPlayer">Add Player »
+                                 value="addPlayer">Player Name»
                             </Button>
                         </Col>
                         <Col>
@@ -57,4 +59,4 @@ function FrontOffice(props) {
     );
 }
 
-export default FrontOffice;
+export default Header;

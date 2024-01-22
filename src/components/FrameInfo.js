@@ -1,5 +1,5 @@
 //TODO: SCOPE / ADD Constants to Namespace
-import {isNil} from "lodash";
+import {isNil} from "../utils";
 
 export const ALL_PINS_STANDING = 'pins';
 export const FRAME_IN_PROGRESS = 'inProgress';

@@ -1,5 +1,5 @@
-import FrameInfo, {LAST_FRAME_MISS} from "../FrameInfo/FrameInfo";
-import {isNil} from "lodash";
+import FrameInfo, {LAST_FRAME_MISS} from "./FrameInfo";
+import {isNil} from "../utils";
 
 class Scorecard {
 
